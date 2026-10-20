@@ -41,6 +41,10 @@ Use `use poise::serenity_prelude as serenity;` to namespace serenity types.
 - **Constants**: `UPPER_SNAKE_CASE`
 - Slash command names in Discord use kebab-case via `rename = "set-status"`
 
+### Comments
+
+- **Never write comments in code**. Code must be 100% self-explanatory through clean structure and descriptive names.
+
 ### Error Handling
 
 - Command and event functions return `Result<(), crate::client::Error>`; use `?` to propagate.
@@ -53,7 +57,7 @@ Use `use poise::serenity_prelude as serenity;` to namespace serenity types.
 **Commands:**
 
 - Place commands in `src/commands/<category>/<command_name>.rs`.
-- Define with `#[poise::command(slash_command)]` and doc comment as description.
+- Define with `#[poise::command(slash_command)]`.
 - Expose them from the category's `mod.rs` via `commands()`; categories are aggregated in `commands::all()`.
 - Restrict to the bot owner with `check = "is_bot_owner"` (`src/utils/checks.rs`).
 
