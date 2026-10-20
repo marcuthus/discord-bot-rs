@@ -22,7 +22,7 @@ Um template robusto e moderno para criação de bots de Discord utilizando **Rus
 1.  **Clone o repositório:**
 
     ```bash
-    git clone https://github.com/seu-usuario/discord-bot-rs.git
+    git clone https://github.com/marcuthus/discord-bot-rs.git
     cd discord-bot-rs
     ```
 
