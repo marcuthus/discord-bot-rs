@@ -12,7 +12,6 @@ pub enum ConfigError {
 pub struct Config {
     pub token: String,
     pub admin_id: String,
-    // Disponíveis para quem for estender o template (ex.: webhooks de interação).
     #[allow(dead_code)]
     pub application_id: String,
     #[allow(dead_code)]

@@ -5,7 +5,6 @@ use crate::config::Config;
 pub type Error = Box<dyn std::error::Error + Send + Sync>;
 pub type Context<'a> = poise::Context<'a, Data, Error>;
 
-/// Estado compartilhado entre todos os comandos e eventos.
 pub struct Data {
     pub config: Arc<Config>,
 }

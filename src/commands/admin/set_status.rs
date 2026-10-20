@@ -55,7 +55,6 @@ impl Status {
     }
 }
 
-/// Define um novo status e descrição para o bot.
 #[poise::command(slash_command, rename = "set-status", check = "is_bot_owner")]
 pub async fn set_status(
     ctx: Context<'_>,

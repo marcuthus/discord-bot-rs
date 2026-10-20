@@ -3,10 +3,6 @@ use tracing_subscriber::{
     EnvFilter, Layer, filter::LevelFilter, fmt, layer::SubscriberExt, util::SubscriberInitExt,
 };
 
-/// Inicializa o logger (console + `logs/combined.log` + `logs/error.log`).
-///
-/// Os `WorkerGuard` retornados devem ser mantidos vivos até o fim do programa,
-/// caso contrário os logs em arquivo podem não ser descarregados.
 pub fn init() -> Vec<WorkerGuard> {
     let console_filter =
         EnvFilter::try_from_default_env().unwrap_or_else(|_| EnvFilter::new("info"));

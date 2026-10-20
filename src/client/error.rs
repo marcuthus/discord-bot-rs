@@ -2,7 +2,6 @@ use tracing::error;
 
 use super::{Data, Error};
 
-/// Handler global de erros: registra no log e responde algo amigável ao usuário.
 pub async fn handle(error: poise::FrameworkError<'_, Data, Error>) {
     match error {
         poise::FrameworkError::Command { error, ctx, .. } => {
