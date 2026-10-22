@@ -64,15 +64,16 @@ Defina `RUST_LOG=debug` para ver logs mais detalhados no console.
 ```text
 src/
 ├── main.rs          # Ponto de entrada
-├── config.rs        # Variáveis de ambiente (Config)
-├── logger.rs        # Configuração do tracing (console + arquivos)
-├── client/          # Montagem do framework Poise
-│   ├── data.rs      # Data, Context e Error compartilhados
-│   └── error.rs     # Handler global de erros
+├── client.rs        # Montagem do framework Poise
+├── data.rs          # Data, Context e Error compartilhados
+├── error.rs         # Handler global de erros
 ├── commands/        # Comandos (Slash Commands) por categoria
 │   ├── info/
 │   └── admin/
 ├── events/          # Handlers de eventos do Discord
+├── helpers/         # Auxiliares (config e logger)
+│   ├── config.rs    # Variáveis de ambiente (Config)
+│   └── logger.rs    # Configuração do tracing (console + arquivos)
 └── utils/           # Utilitários (checks de permissão, etc.)
 ```
 

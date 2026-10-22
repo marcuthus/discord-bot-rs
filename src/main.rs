@@ -1,11 +1,12 @@
 mod client;
 mod commands;
-mod config;
+mod data;
+mod error;
 mod events;
-mod logger;
+mod helpers;
 mod utils;
 
-use config::Config;
+use helpers::{config::Config, logger};
 
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {

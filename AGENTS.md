@@ -50,7 +50,7 @@ Use `use poise::serenity_prelude as serenity;` to namespace serenity types.
 - Command and event functions return `Result<(), crate::client::Error>`; use `?` to propagate.
 - Startup code returns `anyhow::Result`; config errors use `thiserror` (`ConfigError`).
 - Avoid `unwrap()`/`expect()` outside tests. Never `panic!` in handlers.
-- The global handler in `src/client/error.rs` logs the error and sends a friendly message to the user.
+- The global handler in `src/error.rs` logs the error and sends a friendly message to the user.
 
 ## Discord Bot Patterns
 
@@ -70,15 +70,15 @@ Use `use poise::serenity_prelude as serenity;` to namespace serenity types.
 
 - `client::start(config)` builds the Poise framework, registers slash commands globally in `setup` and starts the serenity client.
 - Shared state goes in `client::Data` (available as `ctx.data()`); use `Arc`/atomics/`Mutex` for mutable state.
-- Gateway intents are defined in `src/client/mod.rs`; add privileged intents (e.g. `MESSAGE_CONTENT`) only when needed.
+- Gateway intents are defined in `src/client.rs`; add privileged intents (e.g. `MESSAGE_CONTENT`) only when needed.
 
 ## Configuration
 
-- Environment variables loaded via `dotenvy` and validated by `Config::from_env()` (`src/config.rs`).
+- Environment variables loaded via `dotenvy` and validated by `Config::from_env()` (`src/helpers/config.rs`).
 - Required env vars: `DISCORD_BOT_TOKEN`, `DISCORD_ADMIN_ID`, `DISCORD_APPLICATION_ID`, `DISCORD_PUBLIC_KEY`.
 
 ## Logging
 
 - Use `tracing` macros with a scope as target: `info!(target: "client", "...")`, `error!`, `warn!`, `debug!`.
-- Logs go to console and to `logs/combined.log` / `logs/error.log` (see `src/logger.rs`).
+- Logs go to console and to `logs/combined.log` / `logs/error.log` (see `src/helpers/logger.rs`).
 - Keep the `WorkerGuard`s returned by `logger::init()` alive in `main`.

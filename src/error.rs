@@ -1,6 +1,6 @@
 use tracing::error;
 
-use super::{Data, Error};
+use crate::data::{Data, Error};
 
 pub async fn handle(error: poise::FrameworkError<'_, Data, Error>) {
     match error {

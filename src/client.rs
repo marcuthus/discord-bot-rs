@@ -1,14 +1,11 @@
-mod data;
-mod error;
-
 use std::sync::Arc;
 
 use poise::serenity_prelude as serenity;
 use tracing::info;
 
-use crate::{commands, config::Config, events};
+use crate::{commands, error, events, helpers::config::Config};
 
-pub use data::{Context, Data, Error};
+pub use crate::data::{Context, Data, Error};
 
 pub async fn start(config: Config) -> anyhow::Result<()> {
     info!(target: "client", "Starting...");
