@@ -7,7 +7,8 @@ use poise::{
 
 use crate::client::{Context, Error};
 
-#[poise::command(slash_command)]
+/// Envia o ping do bot.
+#[poise::command(slash_command, category = "info")]
 pub async fn ping(ctx: Context<'_>) -> Result<(), Error> {
     let started = Instant::now();
     let handle = ctx.say("Calculando ping...").await?;

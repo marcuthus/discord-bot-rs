@@ -32,6 +32,7 @@ pub async fn start(config: Config) -> anyhow::Result<()> {
 
     let intents = serenity::GatewayIntents::GUILDS
         | serenity::GatewayIntents::DIRECT_MESSAGES
+        | serenity::GatewayIntents::GUILD_MEMBERS
         | serenity::GatewayIntents::GUILD_MESSAGES
         | serenity::GatewayIntents::GUILD_MESSAGE_REACTIONS;
 

@@ -6,6 +6,7 @@ edition = "2024"
 [dependencies]
 anyhow = "1.0.104"
 dotenvy = "0.15.7"
+image = { version = "0.25.10", default-features = false, features = ["png", "jpeg", "gif", "webp"] }
 poise = "0.7.1"
 thiserror = "2.0.21"
 tokio = { version = "1.54.0", features = ["macros", "rt-multi-thread"] }

@@ -89,3 +89,12 @@ Use `use poise::serenity_prelude as serenity;` to namespace serenity types.
 - `docker-compose.yml` loads `.env` through `env_file` and keeps `logs/` in named volumes.
 - `.dockerignore` keeps `.env`, `logs/`, `auth/`, `.git` and build output out of the image. Never copy secrets into the image.
 - Build and run: `docker compose up --build`.
+
+## Server Management Commands
+
+- Every command sets `category = "..."` (`info`, `group`, `media`, `admin`); `/menu` groups the registered commands by it, using `CATEGORY_LABELS` in `src/commands/info/menu.rs`.
+- The doc comment (`///`) above a `#[poise::command]` is the slash command description in Discord; it is the only kind of comment used in this project.
+- Moderation commands combine `required_permissions`, `required_bot_permissions` and `default_member_permissions`, and are `guild_only`.
+- `/members` needs the privileged Server Members Intent (`GUILD_MEMBERS`) enabled in the Developer Portal.
+- `/create-sticker` converts the attachment to a 320x320 PNG (`src/utils/sticker.rs`) with the `image` crate; `crop` is `true` (fill and crop, default), `false` (fit with transparent bars) or `dented` (stretched); `center` defaults to true.
+- Bots cannot add users to a server or create servers, so there are no `add-member`/`create-group` commands.
