@@ -1,0 +1,13 @@
+services:
+    discord-bot-rs:
+        build: .
+        image: discord-bot-rs
+        init: true
+        restart: unless-stopped
+        stop_grace_period: 30s
+        env_file: .env
+        volumes:
+            - logs:/app/logs
+
+volumes:
+    logs:
